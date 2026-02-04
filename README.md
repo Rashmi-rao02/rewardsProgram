@@ -1,6 +1,6 @@
 Spring Boot-based RESTful service designed to calculate reward points for retail customers based on their monthly transaction history. This project implements a tiered reward system and provides a dynamic, scalable API
 Features:
-=========
+---------
 * Tiered Reward Logic:
   . 2 points for every dollar spent over $100 in each transaction.
   . 1 point for every dollar spent over $50 in each transaction.
@@ -19,7 +19,7 @@ API Documentation:
   Request Body:
   [
     {
-      "customerId": 101,
+      "customerId": 1,
       "amount": 120.0,
       "date": "2023-01-15"
     }
@@ -27,7 +27,7 @@ API Documentation:
   Response:
   [
     {
-      "customerId": 101,
+      "customerId": 1,
       "monthlyPoints": {
         "JANUARY": 90
       },
