@@ -230,3 +230,41 @@ org.springframework.web.bind.MissingServletRequestParameterException: Required r
 2026-02-04T16:05:39.281-05:00 DEBUG 4776 --- [reward] [http-nio-8080-exec-3] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
 2026-02-04T16:08:12.274-05:00  INFO 4776 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
 2026-02-04T16:08:12.353-05:00  INFO 4776 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-04T17:10:48.294-05:00  INFO 22472 --- [reward] [main] c.r.reward.RewardApplicationTests        : Starting RewardApplicationTests using Java 17.0.12 with PID 22472 (started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T17:10:48.294-05:00 DEBUG 22472 --- [reward] [main] c.r.reward.RewardApplicationTests        : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T17:10:48.294-05:00  INFO 22472 --- [reward] [main] c.r.reward.RewardApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T17:10:50.209-05:00  INFO 22472 --- [reward] [main] c.r.reward.RewardApplicationTests        : Started RewardApplicationTests in 2.367 seconds (process running for 4.229)
+2026-02-04T17:10:51.118-05:00  INFO 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-03-31
+2026-02-04T17:10:51.118-05:00 DEBUG 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T17:10:51.281-05:00  INFO 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-12-01 to 2025-01-01
+2026-02-04T17:10:51.281-05:00 ERROR 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Invalid date range provided: start 2025-12-01 is after end 2025-01-01
+2026-02-04T17:10:51.281-05:00  INFO 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-12-31
+2026-02-04T17:10:51.296-05:00 ERROR 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Validation failed: Transaction contains null values: Transaction(customerId=1, amount=null, date=2026-02-04)
+2026-02-04T17:10:51.300-05:00  INFO 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-01-31
+2026-02-04T17:10:51.300-05:00 DEBUG 22472 --- [reward] [main] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T18:42:22.729-05:00  INFO 5356 --- [reward] [main] c.r.reward.RewardApplicationTests        : Starting RewardApplicationTests using Java 17.0.12 with PID 5356 (started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T18:42:22.730-05:00 DEBUG 5356 --- [reward] [main] c.r.reward.RewardApplicationTests        : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T18:42:22.731-05:00  INFO 5356 --- [reward] [main] c.r.reward.RewardApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T18:42:24.704-05:00  INFO 5356 --- [reward] [main] c.r.reward.RewardApplicationTests        : Started RewardApplicationTests in 2.428 seconds (process running for 3.998)
+2026-02-04T18:42:25.826-05:00  INFO 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-03-31
+2026-02-04T18:42:25.834-05:00 DEBUG 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T18:42:26.011-05:00  INFO 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-12-01 to 2025-01-01
+2026-02-04T18:42:26.012-05:00 ERROR 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Invalid date range provided: start 2025-12-01 is after end 2025-01-01
+2026-02-04T18:42:26.021-05:00  INFO 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-12-31
+2026-02-04T18:42:26.022-05:00 ERROR 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Validation failed: Transaction contains null values: Transaction(customerId=1, amount=null, date=2026-02-04)
+2026-02-04T18:42:26.036-05:00  INFO 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-01-31
+2026-02-04T18:42:26.037-05:00 DEBUG 5356 --- [reward] [main] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T18:42:40.236-05:00  INFO 20408 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 20408 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T18:42:40.241-05:00 DEBUG 20408 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T18:42:40.243-05:00  INFO 20408 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T18:42:41.069-05:00  INFO 20408 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T18:42:41.083-05:00  INFO 20408 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T18:42:41.084-05:00  INFO 20408 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T18:42:41.150-05:00  INFO 20408 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 848 ms
+2026-02-04T18:42:41.519-05:00  INFO 20408 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T18:42:41.525-05:00  INFO 20408 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 1.78 seconds (process running for 2.179)
+2026-02-04T18:42:55.405-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T18:42:55.406-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T18:42:55.408-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-04T18:42:55.694-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T18:42:55.698-05:00 DEBUG 20408 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.

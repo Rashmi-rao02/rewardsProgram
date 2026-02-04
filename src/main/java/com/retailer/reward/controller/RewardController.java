@@ -19,6 +19,13 @@ public class RewardController {
     @Autowired
     private RewardService rewardService;
 
+    /**
+     * Calculates reward points for a list of transactions within a specific timeframe.
+     * * @param transactions List of customer transactions provided in the request body.
+     * @param startDate    The beginning of the reporting period (inclusive).
+     * @param endDate      The end of the reporting period (inclusive).
+     * @return A list of RewardResponse containing monthly and total points per customer.
+     */
     @PostMapping("/calculate")
     public List<RewardResponse> calculateRewards(
             @Valid @RequestBody List<Transaction> transactions,
@@ -29,6 +36,10 @@ public class RewardController {
     }
 
 
+    /**
+     * Provides a pre-calculated sample report.
+     * * @return A list of RewardResponse based on hardcoded transaction data.
+     */
     @GetMapping("/sample-data")
     public List<RewardResponse> getSampleData() {
         List<Transaction> transactions = Arrays.asList(

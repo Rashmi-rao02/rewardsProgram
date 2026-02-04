@@ -16,6 +16,17 @@ import java.util.Map;
 @Service
 public class RewardService {
 
+
+    /**
+     * Processes a list of transactions to generate rewards report.
+     * Only transactions falling within the provided date range are considered.
+     *
+     * @param transactions Raw list of transaction data to process.
+     * @param startDate    The start of the calculation window.
+     * @param endDate      The end of the calculation window.
+     * @return A list of RewardResponse objects containing aggregated monthly points.
+     * @throws IllegalArgumentException if the date range is logically invalid or data is missing.
+     */
     public List<RewardResponse> getRewardsReport(List<Transaction> transactions, LocalDate startDate, LocalDate endDate) {
         log.info("Processing rewards report: Range {} to {}", startDate, endDate);
 
@@ -23,32 +34,27 @@ public class RewardService {
             throw new IllegalArgumentException("Start date cannot be in the future");
         }
 
-/*        (startDate.isAfter(endDate)) {
-            throw new IllegalArgumentException("Start date must be before or equal to end date");
-        }*/
-
-
+        //Validation of the requested timeframe
         if (startDate.isAfter(endDate)) {
             log.error("Invalid date range provided: start {} is after end {}", startDate, endDate);
             throw new IllegalArgumentException("startDate cannot be after endDate");
         }
 
-        // Map<CustomerId, Map<Month, TotalPoints>>
+
         Map<Long, Map<Month, Integer>> masterMap = new HashMap<>();
 
         for (Transaction t : transactions) {
-            // 1. Null validation
+
             if (t.getCustomerId() == null || t.getDate() == null || t.getAmount() == null) {
                 log.error("Validation failed: Transaction contains null values: {}", t);
                 throw new IllegalArgumentException("Transaction data is incomplete: CustomerID, Date, and Amount are required");
             }
 
-            // 2. Date Range Filtering
+
             if (t.getDate().isBefore(startDate) || t.getDate().isAfter(endDate)) {
-                continue; // Skip transactions outside the user-specified range
+                continue;
             }
 
-            // 3. Calculation & Aggregation
             Long id = t.getCustomerId();
             Month month = t.getDate().getMonth();
             int points = calculatePoints(t.getAmount());
@@ -57,7 +63,7 @@ public class RewardService {
                     .merge(month, points, Integer::sum);
         }
 
-        // 4. Transform Map to List of Response DTOs
+
         List<RewardResponse> response = new ArrayList<>();
         for (var entry : masterMap.entrySet()) {
             response.add(new RewardResponse(entry.getKey(), entry.getValue()));
@@ -67,6 +73,16 @@ public class RewardService {
         return response;
     }
 
+
+    /**
+     * Calculates reward points based on the retailer's system.
+     * * Formula:
+     * - 2 points for every dollar spent over $100.
+     * - 1 point for every dollar spent over $50 (up to $100).
+     *
+     * @param amount The transaction amount.
+     * @return Calculated integer points.
+     */
     public int calculatePoints(double amount) {
         if (amount < 0) throw new IllegalArgumentException("Transaction amount cannot be negative");
 
