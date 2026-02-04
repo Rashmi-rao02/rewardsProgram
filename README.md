@@ -1,6 +1,7 @@
 Spring Boot-based RESTful service designed to calculate reward points for retail customers based on their monthly transaction history. This project implements a tiered reward system and provides a dynamic, scalable API
-Features:
----------
+
+## Features:
+
 * Tiered Reward Logic:
   . 2 points for every dollar spent over $100 in each transaction.
   . 1 point for every dollar spent over $50 in each transaction.
@@ -9,8 +10,7 @@ Features:
 * Robust Error Handling:
   Centralized exception handling using @RestControllerAdvice to manage missing parameters, date mismatches, and invalid JSON inputs.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-API Documentation:
-==================
+## API Documentation:
   Calculate Rewards
   POST /api/reward/calculate
   Query Parameters: 
@@ -35,7 +35,6 @@ API Documentation:
     }
   ]
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Running Tests:
-==============
+## Running Tests:
 To run the full test suite, execute the following command in the terminal:
 mvn test
