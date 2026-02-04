@@ -16,6 +16,7 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
   Query Parameters: 
   Parameter | Type | Required | Description | | :--- | :--- | :--- | :--- | | startDate | LocalDate | Yes | Start of the calculation window (YYYY-MM-DD) | | 
   endDate | LocalDate | Yes | End of the calculation window (YYYY-MM-DD) |
+
   Request Body:
   [
     {
@@ -24,6 +25,7 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
       "date": "2023-01-15"
     }
   ]
+
   Response:
   [
     {
