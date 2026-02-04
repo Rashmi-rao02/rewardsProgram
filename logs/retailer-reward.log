@@ -1,0 +1,232 @@
+2026-02-04T15:42:32.422-05:00  INFO 6764 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 6764 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T15:42:32.422-05:00 DEBUG 6764 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T15:42:32.422-05:00  INFO 6764 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T15:42:33.522-05:00  INFO 6764 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T15:42:33.537-05:00  INFO 6764 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T15:42:33.537-05:00  INFO 6764 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T15:42:33.616-05:00  INFO 6764 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1105 ms
+2026-02-04T15:42:34.070-05:00  INFO 6764 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T15:42:34.075-05:00  INFO 6764 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 2.276 seconds (process running for 2.761)
+2026-02-04T15:44:43.024-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T15:44:43.024-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T15:44:43.026-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-02-04T15:44:43.296-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-1] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2023-01-01 to 2023-03-31
+2026-02-04T15:44:43.301-05:00 DEBUG 6764 --- [reward] [http-nio-8080-exec-1] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T15:45:10.036-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-4] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2023-01-01 to 2023-03-31
+2026-02-04T15:45:10.037-05:00 DEBUG 6764 --- [reward] [http-nio-8080-exec-4] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T15:45:53.869-05:00  INFO 6764 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2023-01-01 to 2023-03-31
+2026-02-04T15:45:53.871-05:00 DEBUG 6764 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T15:46:22.074-05:00  INFO 6764 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T15:46:22.151-05:00  INFO 6764 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-04T15:47:43.734-05:00  INFO 17644 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 17644 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T15:47:43.738-05:00 DEBUG 17644 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T15:47:43.740-05:00  INFO 17644 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T15:47:44.607-05:00  INFO 17644 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T15:47:44.629-05:00  INFO 17644 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T15:47:44.629-05:00  INFO 17644 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T15:47:44.706-05:00  INFO 17644 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 904 ms
+2026-02-04T15:47:45.505-05:00  INFO 17644 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T15:47:45.510-05:00  INFO 17644 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 2.259 seconds (process running for 2.65)
+2026-02-04T15:48:55.593-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T15:48:55.594-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T15:48:55.596-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-04T15:48:55.641-05:00 ERROR 17644 --- [reward] [http-nio-8080-exec-1] c.r.r.controller.GlobalExceptionHandler  : Unhandled server error: 
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/reward/calculate/ss for request '/api/reward/calculate/ss'.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:527) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:50) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-02-04T15:49:09.822-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-6] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-01-01 to 2025-03-31
+2026-02-04T15:49:09.825-05:00 DEBUG 17644 --- [reward] [http-nio-8080-exec-6] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T15:49:23.439-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-7] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-03-31
+2026-02-04T15:49:23.439-05:00 DEBUG 17644 --- [reward] [http-nio-8080-exec-7] c.retailer.reward.service.RewardService  : Calculation complete. Found 1 customers in range.
+2026-02-04T15:49:39.460-05:00  WARN 17644 --- [reward] [http-nio-8080-exec-2] c.r.r.controller.GlobalExceptionHandler  : Client error occurred: MethodArgumentTypeMismatchException - Method parameter 'endDate': Failed to convert value of type 'java.lang.String' to required type 'java.time.LocalDate'; Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam @org.springframework.format.annotation.DateTimeFormat java.time.LocalDate] for value [2025-04-31]
+2026-02-04T15:50:21.019-05:00  INFO 17644 --- [reward] [http-nio-8080-exec-8] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T15:50:21.020-05:00 DEBUG 17644 --- [reward] [http-nio-8080-exec-8] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T15:50:57.816-05:00 ERROR 17644 --- [reward] [http-nio-8080-exec-9] c.r.r.controller.GlobalExceptionHandler  : Unhandled server error: 
+
+org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'endDate' for method parameter type LocalDate is not present
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:219) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:195) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:123) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:230) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-02-04T15:56:08.900-05:00  INFO 17644 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T15:56:08.979-05:00  INFO 17644 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-04T15:56:41.834-05:00  INFO 17784 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 17784 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T15:56:41.837-05:00 DEBUG 17784 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T15:56:41.840-05:00  INFO 17784 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T15:56:42.679-05:00  INFO 17784 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T15:56:42.694-05:00  INFO 17784 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T15:56:42.695-05:00  INFO 17784 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T15:56:42.758-05:00  INFO 17784 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 854 ms
+2026-02-04T15:56:43.107-05:00  INFO 17784 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T15:56:43.113-05:00  INFO 17784 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 1.757 seconds (process running for 2.143)
+2026-02-04T15:57:01.895-05:00  INFO 17784 --- [reward] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T15:57:01.895-05:00  INFO 17784 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T15:57:01.895-05:00  INFO 17784 --- [reward] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-02-04T15:57:02.240-05:00  INFO 17784 --- [reward] [http-nio-8080-exec-1] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T15:57:02.242-05:00 DEBUG 17784 --- [reward] [http-nio-8080-exec-1] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T15:57:10.921-05:00 ERROR 17784 --- [reward] [http-nio-8080-exec-3] c.r.r.controller.GlobalExceptionHandler  : Unhandled server error: 
+
+org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'endDate' for method parameter type LocalDate is not present
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:219) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:195) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:123) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:230) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:180) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-02-04T15:57:49.111-05:00  INFO 17784 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T15:57:49.187-05:00  INFO 17784 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-04T16:00:45.293-05:00  INFO 17804 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 17804 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T16:00:45.297-05:00 DEBUG 17804 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T16:00:45.299-05:00  INFO 17804 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T16:00:46.208-05:00  INFO 17804 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T16:00:46.225-05:00  INFO 17804 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T16:00:46.226-05:00  INFO 17804 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T16:00:46.305-05:00  INFO 17804 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 933 ms
+2026-02-04T16:00:46.713-05:00  INFO 17804 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T16:00:46.718-05:00  INFO 17804 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 1.947 seconds (process running for 2.356)
+2026-02-04T16:00:57.686-05:00  INFO 17804 --- [reward] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T16:00:57.687-05:00  INFO 17804 --- [reward] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T16:00:57.690-05:00  INFO 17804 --- [reward] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-04T16:00:57.915-05:00  INFO 17804 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T16:00:57.920-05:00 DEBUG 17804 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T16:01:19.038-05:00  WARN 17804 --- [reward] [http-nio-8080-exec-3] c.r.r.controller.GlobalExceptionHandler  : Missing parameter in request: startDate
+2026-02-04T16:01:33.924-05:00  WARN 17804 --- [reward] [http-nio-8080-exec-4] c.r.r.controller.GlobalExceptionHandler  : Missing parameter in request: endDate
+2026-02-04T16:01:41.189-05:00  INFO 17804 --- [reward] [http-nio-8080-exec-8] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T16:01:41.190-05:00 DEBUG 17804 --- [reward] [http-nio-8080-exec-8] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T16:03:10.736-05:00  INFO 17804 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T16:03:10.815-05:00  INFO 17804 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-04T16:05:29.132-05:00  INFO 4776 --- [reward] [main] com.retailer.reward.RewardApplication    : Starting RewardApplication using Java 17.0.12 with PID 4776 (C:\Users\krash\Downloads\reward\reward\target\classes started by krash in C:\Users\krash\Downloads\reward\reward)
+2026-02-04T16:05:29.136-05:00 DEBUG 4776 --- [reward] [main] com.retailer.reward.RewardApplication    : Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-02-04T16:05:29.138-05:00  INFO 4776 --- [reward] [main] com.retailer.reward.RewardApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-02-04T16:05:29.938-05:00  INFO 4776 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-04T16:05:29.952-05:00  INFO 4776 --- [reward] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-04T16:05:29.953-05:00  INFO 4776 --- [reward] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-04T16:05:30.011-05:00  INFO 4776 --- [reward] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 809 ms
+2026-02-04T16:05:30.368-05:00  INFO 4776 --- [reward] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-04T16:05:30.373-05:00  INFO 4776 --- [reward] [main] com.retailer.reward.RewardApplication    : Started RewardApplication in 1.709 seconds (process running for 2.095)
+2026-02-04T16:05:39.066-05:00  INFO 4776 --- [reward] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04T16:05:39.067-05:00  INFO 4776 --- [reward] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-04T16:05:39.069-05:00  INFO 4776 --- [reward] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-04T16:05:39.278-05:00  INFO 4776 --- [reward] [http-nio-8080-exec-3] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
+2026-02-04T16:05:39.281-05:00 DEBUG 4776 --- [reward] [http-nio-8080-exec-3] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T16:08:12.274-05:00  INFO 4776 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T16:08:12.353-05:00  INFO 4776 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
