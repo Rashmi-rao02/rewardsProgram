@@ -39,4 +39,5 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Running Tests:
 To run the full test suite, execute the following command in the terminal:
+
 mvn test
