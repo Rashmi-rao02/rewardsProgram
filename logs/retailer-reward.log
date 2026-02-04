@@ -268,3 +268,5 @@ org.springframework.web.bind.MissingServletRequestParameterException: Required r
 2026-02-04T18:42:55.408-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
 2026-02-04T18:42:55.694-05:00  INFO 20408 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Processing rewards report: Range 2025-02-01 to 2025-04-30
 2026-02-04T18:42:55.698-05:00 DEBUG 20408 --- [reward] [http-nio-8080-exec-2] c.retailer.reward.service.RewardService  : Calculation complete. Found 2 customers in range.
+2026-02-04T18:46:19.529-05:00  INFO 20408 --- [reward] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-04T18:46:19.611-05:00  INFO 20408 --- [reward] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
