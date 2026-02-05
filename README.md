@@ -11,9 +11,10 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
   Centralized exception handling using @RestControllerAdvice to manage missing parameters, date mismatches, and invalid JSON inputs.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## API Documentation:
-  Calculate Rewards
+  Calculate Rewards:
   POST /api/reward/calculate
-  Query Parameters: 
+
+  Query Parameters:
   Parameter | Type | Required | Description | | :--- | :--- | :--- | :--- | | startDate | LocalDate | Yes | Start of the calculation window (YYYY-MM-DD) | | 
   endDate | LocalDate | Yes | End of the calculation window (YYYY-MM-DD) |
 
