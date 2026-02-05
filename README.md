@@ -10,6 +10,32 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
 * Robust Error Handling:
   Centralized exception handling using @RestControllerAdvice to manage missing parameters, date mismatches, and invalid JSON inputs.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How to run application:
+1.Clone the repository: https://github.com/Rashmi-rao02/rewardsProgram.git
+2.Build and install dependencies: mvn clean install
+3.Run the application: mvn spring-boot:run
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Testing:
+Endpoint can be tested directly from terminal using this command:
+curl --location --request POST 'http://localhost:8080/api/reward/calculate?startDate=2025-02-01&endDate=2025-04-30' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+{
+"customerId": 1,
+"amount": 120.0,
+"date": "2025-01-15"
+},
+{
+"customerId": 1,
+"amount": 80.0,
+"date": "2025-04-10"
+},
+{
+"customerId": 2,
+"amount": 500.0,
+"date": "2025-02-20"
+}
+]'
 ## API Documentation:
   Calculate Rewards:
   POST /api/reward/calculate
