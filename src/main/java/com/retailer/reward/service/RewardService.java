@@ -37,9 +37,15 @@ public class RewardService {
         //Validation of the requested timeframe
         if (startDate.isAfter(endDate)) {
             log.error("Invalid date range provided: start {} is after end {}", startDate, endDate);
-            throw new IllegalArgumentException("startDate cannot be after endDate");
+            throw new IllegalArgumentException("StartDate cannot be after EndDate.");
         }
 
+        // Ensure the reporting window does not extend into the future
+        LocalDate today = LocalDate.now();
+        if (endDate.isAfter(today)) {
+            log.error("Invalid date range: end date {} is in the future", endDate);
+            throw new IllegalArgumentException("EndDate cannot be a future date.");
+        }
 
         Map<Long, Map<Month, Integer>> masterMap = new HashMap<>();
 

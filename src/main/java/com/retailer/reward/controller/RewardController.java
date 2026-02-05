@@ -4,6 +4,7 @@ import com.retailer.reward.dto.RewardResponse;
 import com.retailer.reward.model.Transaction;
 import com.retailer.reward.service.RewardService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class RewardController {
      */
     @PostMapping("/calculate")
     public List<RewardResponse> calculateRewards(
-            @Valid @RequestBody List<Transaction> transactions,
+            @Valid @NotEmpty(message = "Transaction list cannot be empty") @RequestBody List<Transaction> transactions,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
 
