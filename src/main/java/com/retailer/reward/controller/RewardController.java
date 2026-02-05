@@ -1,6 +1,7 @@
 package com.retailer.reward.controller;
 
 import com.retailer.reward.dto.RewardResponse;
+import com.retailer.reward.dto.RewardSummaryResponse;
 import com.retailer.reward.model.Transaction;
 import com.retailer.reward.service.RewardService;
 import jakarta.validation.Valid;
@@ -38,19 +39,56 @@ public class RewardController {
 
 
     /**
-     * Provides a pre-calculated sample report.
-     * * @return A list of RewardResponse based on hardcoded transaction data.
+     * Generates a rewards summary for a rolling window of recent activity.
+     * This endpoint calculates start and end dates automatically based on the current system date.
+     *
+     * @param transactions List of customer transactions provided in the request body.
+     * @param months       The number of months to look back from today (defaults to 3 if not specified).
+     * @return A RewardSummaryResponse containing the individual customer breakdowns,
+     * the grand total of points across all customers, and the calculated date range.
+     */
+    @PostMapping("/recent")
+    public RewardSummaryResponse getRecentRewards(
+            @Valid @NotEmpty(message = "Transaction list cannot be empty")
+            @RequestBody List<Transaction> transactions,
+            @RequestParam(value = "months", defaultValue = "3") int months) {
+
+        LocalDate endDate = LocalDate.now();
+        LocalDate startDate = endDate.minusMonths(months);
+
+        return createSummaryResponse(transactions, startDate, endDate);
+    }
+
+    /**
+     * Provides a pre-calculated sample report using mock transaction data.
+     * It uses relative dates to ensure
+     * the sample data always remains within the current reporting window.
+     *
+     * @return A RewardSummaryResponse containing sample customer rewards,
+     * the grand total, and the corresponding date range.
      */
     @GetMapping("/sample-data")
-    public List<RewardResponse> getSampleData() {
+    public RewardSummaryResponse getSampleData() {
         List<Transaction> transactions = Arrays.asList(
-                new Transaction(1L, 120.0, LocalDate.of(2025, 1, 15)),
-                new Transaction(1L, 80.0, LocalDate.of(2023, 2, 10)),
-                new Transaction(1L, 10.0, LocalDate.of(2023, 3, 5)),
-                new Transaction(2L, 500.0, LocalDate.of(2023, 1, 20))
+                new Transaction(1L, 120.0, LocalDate.now().minusDays(10)),
+                new Transaction(1L, 80.0, LocalDate.now().minusDays(45)),
+                new Transaction(2L, 500.0, LocalDate.now().minusDays(5))
         );
 
-        return rewardService.getRewardsReport(transactions, LocalDate.of(2023, 1, 1), LocalDate.of(2025, 12, 31));
+        return createSummaryResponse(transactions, LocalDate.now().minusMonths(3), LocalDate.now());
+    }
+
+    /**
+     * Helper method to encapsulate the creation of a summary response.
+     */
+    private RewardSummaryResponse createSummaryResponse(List<Transaction> transactions, LocalDate start, LocalDate end) {
+        List<RewardResponse> customerRewards = rewardService.getRewardsReport(transactions, start, end);
+
+        int grandTotal = customerRewards.stream()
+                .mapToInt(RewardResponse::getTotalPoints)
+                .sum();
+
+        return new RewardSummaryResponse(customerRewards, grandTotal, start, end);
     }
 
 }

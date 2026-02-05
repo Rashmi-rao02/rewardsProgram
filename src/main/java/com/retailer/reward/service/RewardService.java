@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -34,12 +33,6 @@ public class RewardService {
             throw new IllegalArgumentException("Start date cannot be in the future");
         }
 
-        //Validation of the requested timeframe
-        if (startDate.isAfter(endDate)) {
-            log.error("Invalid date range provided: start {} is after end {}", startDate, endDate);
-            throw new IllegalArgumentException("StartDate cannot be after EndDate.");
-        }
-
         // Ensure the reporting window does not extend into the future
         LocalDate today = LocalDate.now();
         if (endDate.isAfter(today)) {
@@ -47,39 +40,40 @@ public class RewardService {
             throw new IllegalArgumentException("EndDate cannot be a future date.");
         }
 
-        Map<Long, Map<Month, Integer>> masterMap = new HashMap<>();
+        validateRequestDates(startDate, endDate);
 
-        for (Transaction t : transactions) {
+        transactions.forEach(this::validateTransactionData);
 
-            if (t.getCustomerId() == null || t.getDate() == null || t.getAmount() == null) {
-                log.error("Validation failed: Transaction contains null values: {}", t);
-                throw new IllegalArgumentException("Transaction data is incomplete: CustomerID, Date, and Amount are required");
-            }
+        Map<Long, Map<Month, Integer>> masterMap = transactions.stream()
+                .filter(t -> !t.getDate().isBefore(startDate) && !t.getDate().isAfter(endDate))
+                .collect(Collectors.groupingBy(
+                        Transaction::getCustomerId,
+                        Collectors.groupingBy(
+                                t -> t.getDate().getMonth(),
+                                Collectors.summingInt(t -> calculatePoints(t.getAmount()))
+                        )
+                ));
 
-
-            if (t.getDate().isBefore(startDate) || t.getDate().isAfter(endDate)) {
-                continue;
-            }
-
-            Long id = t.getCustomerId();
-            Month month = t.getDate().getMonth();
-            int points = calculatePoints(t.getAmount());
-
-            masterMap.computeIfAbsent(id, k -> new HashMap<>())
-                    .merge(month, points, Integer::sum);
-        }
-
-
-        List<RewardResponse> response = new ArrayList<>();
-        for (var entry : masterMap.entrySet()) {
-            response.add(new RewardResponse(entry.getKey(), entry.getValue()));
-        }
-
-        log.debug("Calculation complete. Found {} customers in range.", response.size());
-        return response;
+        return masterMap.entrySet().stream()
+                .map(entry -> new RewardResponse(entry.getKey(), entry.getValue()))
+                .toList();
     }
 
+    private void validateRequestDates(LocalDate startDate, LocalDate endDate) {
+        if (startDate.isAfter(endDate)) {
+            throw new IllegalArgumentException("StartDate cannot be after EndDate.");
+        }
+        if (endDate.isAfter(LocalDate.now())) {
+            log.warn("End date {} is in the future; results may be incomplete.", endDate);
+        }
+    }
 
+    private void validateTransactionData(Transaction t) {
+        if (t.getCustomerId() == null || t.getDate() == null || t.getAmount() == null) {
+            log.error("Transaction data integrity error: {}", t);
+            throw new IllegalArgumentException("Transaction contains null fields.");
+        }
+    }
     /**
      * Calculates reward points based on the retailer's system.
      * * Formula:
