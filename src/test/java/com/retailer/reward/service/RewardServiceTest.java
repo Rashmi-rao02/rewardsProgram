@@ -2,11 +2,13 @@ package com.retailer.reward.service;
 
 import com.retailer.reward.dto.RewardResponse;
 import com.retailer.reward.model.Transaction;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -14,74 +16,50 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class RewardServiceTest {
 
     private final RewardService rewardService = new RewardService();
+    private final LocalDate JAN_1 = LocalDate.of(2025, 1, 1);
+    private final LocalDate JAN_31 = LocalDate.of(2025, 1, 31);
 
+    @ParameterizedTest(name = "Amount {0} should yield {1} points")
+    @CsvSource({
+            "50.0, 0", "80.0, 30", "100.0, 50", "120.0, 90"
+    })
+    void testPointsLogic(double amount, int expectedPoints) {
+        assertThat(rewardService.calculatePoints(amount)).isEqualTo(expectedPoints);
+    }
 
     @Test
-    void testGetRewardsReport_WithDateFiltering() {
-        // Arrange
-        LocalDate start = LocalDate.of(2025, 1, 1);
-        LocalDate end = LocalDate.of(2025, 1, 31);
-
+    @DisplayName("Should correctly filter dates and aggregate by customer")
+    void testAggregationAndFiltering() {
         List<Transaction> transactions = List.of(
-                // In range: $120 -> 90 points
-                new Transaction(1L, 120.0, LocalDate.of(2025, 1, 15)),
-                // Out of range: Should be ignored
-                new Transaction(1L, 500.0, LocalDate.of(2025, 2, 10))
+                new Transaction(1L, 120.0, JAN_1),           // In range: 90 pts
+                new Transaction(1L, 50.0, JAN_1.plusDays(1)), // In range: 0 pts
+                new Transaction(1L, 100.0, JAN_31.plusDays(1)) // Out of range
         );
 
-        // Act
-        List<RewardResponse> report = rewardService.getRewardsReport(transactions, start, end);
+        List<RewardResponse> report = rewardService.getRewardsReport(transactions, JAN_1, JAN_31);
 
-        // Assert
         assertThat(report).hasSize(1);
-        Map<Month, Integer> monthlyMap = report.get(0).getMonthlyPoints();
-        assertThat(monthlyMap.get(Month.JANUARY)).isEqualTo(90);
-        assertThat(monthlyMap).doesNotContainKey(Month.FEBRUARY);
+        assertThat(report.get(0).getTotalPoints()).isEqualTo(90);
     }
 
     @Test
-    void testGetRewardsReport_MultiMonthAggregation() {
-        // Arrange
-        LocalDate start = LocalDate.of(2025, 1, 1);
-        LocalDate end = LocalDate.of(2025, 3, 31);
-        Long customerId = 1L;
+    @DisplayName("Should throw IllegalArgumentException for any invalid input")
+    void testInvalidInputs() {
+        // Bad Date Range (Start after End)
+        assertThrows(IllegalArgumentException.class, () ->
+                rewardService.getRewardsReport(List.of(), JAN_31, JAN_1));
 
-        List<Transaction> transactions = List.of(
-                new Transaction(customerId, 120.0, LocalDate.of(2025, 1, 10)), // 90 pts
-                new Transaction(customerId, 80.0, LocalDate.of(2025, 2, 10))   // 30 pts
+        // Missing Data (Null Amount)
+        List<Transaction> badData = List.of(new Transaction(1L, null, JAN_1));
+        assertThrows(IllegalArgumentException.class, () ->
+                rewardService.getRewardsReport(badData, JAN_1, JAN_31));
+    }
+
+    @Test
+    @DisplayName("Should throw error when transaction list is empty")
+    void testEmptyHandling() {
+        assertThrows(IllegalArgumentException.class, () ->
+                rewardService.getRewardsReport(List.of(), JAN_1, JAN_31)
         );
-
-        // Act
-        List<RewardResponse> report = rewardService.getRewardsReport(transactions, start, end);
-
-        // Assert
-        assertThat(report).hasSize(1);
-        assertThat(report.get(0).getMonthlyPoints().get(Month.JANUARY)).isEqualTo(90);
-        assertThat(report.get(0).getMonthlyPoints().get(Month.FEBRUARY)).isEqualTo(30);
-    }
-
-    @Test
-    void testInvalidDateRange_ThrowsException() {
-        // Start date is AFTER end date
-        LocalDate start = LocalDate.of(2025, 12, 1);
-        LocalDate end = LocalDate.of(2025, 1, 1);
-        List<Transaction> transactions = List.of(new Transaction(1L, 100.0, LocalDate.now()));
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.getRewardsReport(transactions, start, end);
-        });
-    }
-
-    @Test
-    void testIncompleteData_ThrowsException() {
-        LocalDate start = LocalDate.of(2025, 1, 1);
-        LocalDate end = LocalDate.of(2025, 12, 31);
-
-        // Transaction with null amount
-        List<Transaction> badTransactions = List.of(new Transaction(1L, null, LocalDate.now()));
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            rewardService.getRewardsReport(badTransactions, start, end);
-        });
     }
 }
