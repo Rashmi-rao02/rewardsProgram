@@ -15,8 +15,9 @@ Spring Boot-based RESTful service designed to calculate reward points for retail
   POST /api/reward/calculate
 
   Query Parameters:
-  Parameter | Type | Required | Description | | :--- | :--- | :--- | :--- | | startDate | LocalDate | Yes | Start of the calculation window (YYYY-MM-DD) | | 
-  endDate | LocalDate | Yes | End of the calculation window (YYYY-MM-DD) |
+  Parameter | Type      | Required | Description |
+  startDate | LocalDate | Yes      | Start of the calculation window (YYYY-MM-DD) 
+  endDate   | LocalDate | Yes      | End of the calculation window (YYYY-MM-DD) 
 
   Request Body:
   [
