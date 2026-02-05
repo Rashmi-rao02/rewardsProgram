@@ -29,6 +29,10 @@ public class RewardService {
     public List<RewardResponse> getRewardsReport(List<Transaction> transactions, LocalDate startDate, LocalDate endDate) {
         log.info("Processing rewards report: Range {} to {}", startDate, endDate);
 
+        if (transactions == null || transactions.isEmpty()) {
+            throw new IllegalArgumentException("Transaction list cannot be null or empty");
+        }
+
         if (startDate.isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("Start date cannot be in the future");
         }
