@@ -37,7 +37,6 @@ public class RewardController {
         return rewardService.getRewardsReport(transactions, startDate, endDate);
     }
 
-
     /**
      * Generates a rewards summary for a rolling window of recent activity.
      * This endpoint calculates start and end dates automatically based on the current system date.
