@@ -1,16 +1,19 @@
 package com.retailer.reward.model;
 
-
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "transactions")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull(message = "CustomerId is required")
     private Long customerId;
@@ -20,4 +23,12 @@ public class Transaction {
 
     @NotNull(message = "Transaction date is required")
     private LocalDate date;
+
+
+    public Transaction(Long customerId, Double amount, LocalDate date) {
+        this.customerId = customerId;
+        this.amount = amount;
+        this.date = date;
+    }
+
 }

@@ -6,9 +6,10 @@ A Spring Boot-based RESTful service designed to calculate reward points for reta
 
 * **Java 17**: Core programming language.
 * **Spring Boot 3.x**: Framework for building the REST API.
+* **Spring Data JPA**: For database abstraction and persistence.
 * **Maven**: Dependency management and build tool.
 * **Lombok**: To reduce boilerplate code (Getters, Setters, Logging).
-* **JUnit 5 & AssertJ**: For robust unit and boundary analysis testing.
+* **JUnit 5 & MockMvc**: For comprehensive unit, boundary, and web-layer testing.
 
 ---
 
@@ -16,8 +17,10 @@ A Spring Boot-based RESTful service designed to calculate reward points for reta
 
 * **Tiered Reward Logic**: Automatically calculates points based on transaction thresholds.
 * **Dynamic Timeframe Filtering**: Filter rewards by specific `startDate` and `endDate`.
-* **Recent Activity Reporting**: Quick-access API to view rewards for the last $N$ months.
+* **Recent Activity Reporting**: Query rewards from the database using specific date ranges.
 * **Robust Error Handling**: Centralized validation for JSON structure, data types, and business logic.
+* **H2 Data Persistence**: Transactions are stored in a database, seeded automatically via data.sql.
+* **Recent Activity Reporting**: Rolling window summary for the last $N$ months with grand totals.
 
 ---
 
@@ -35,11 +38,15 @@ The system follows a tiered approach per transaction:
 
 ```text
 src/main/java/com/retailer/reward/
-├── controller/        # REST Controllers (API Endpoints)
-├── dto/               # Data Transfer Objects (Request/Response)
-├── exception/         # Global Exception Handler & Error Details
-├── model/             # Domain Entities (Transaction)
-└── service/           # Business Logic (Reward Calculation)
+├── controller/        # REST Controllers (GET endpoints for DB queries)
+├── dto/               # Data Transfer Objects (Response wrappers)
+├── exception/         # @RestControllerAdvice for global error handling
+├── model/             # JPA Entities (Transaction table mapping)
+├── repository/        # Spring Data JPA Repository
+└── service/           # Business logic & Database interaction
+src/main/resources/
+├── schema.sql         # Database table definitions
+└── data.sql           # Initial data seeding
 
 ```
 
@@ -54,10 +61,12 @@ src/main/java/com/retailer/reward/
     ```bash
     mvn spring-boot:run
     ```
+3. **H2 Console:**
+   Access the database UI at http://localhost:8080/h2-console (JDBC URL: jdbc:h2:mem:rewarddb).
 
 ## 📖 API Documentation:
   1.Calculate Rewards:
-    Endpoint: POST /api/reward/calculate
+    Endpoint: GET /api/reward/calculate
 
   Query Parameters:
 
@@ -66,8 +75,8 @@ src/main/java/com/retailer/reward/
 | startDate | LocalDate | Yes      | Start of calculation window (YYYY-MM-DD) |
 | endDate   | LocalDate | Yes      | End of calculation window (YYYY-MM-DD)   |
 
-  2.Recent Rewards:
-    Endpoint: POST /api/reward/recent
+  2.Recent Rewards Summary:
+    Endpoint: GET /api/reward/recent
 
   Query Parameters:
 
@@ -75,36 +84,33 @@ src/main/java/com/retailer/reward/
 |-----------|-----------|----------|------------------------------------------|
 | months    | Integer   | No       | Number of months (default:3              |
 
- Sample Request Body:
-```json
- [
- {
- "customerId": 1,
- "amount": 120.0,
- "date": "2025-01-15"
- }
- ]
-```
+
   Sample Response Body:
 ```json
-[
-  {
-    "customerId": 1,
-    "monthlyPoints": { "JANUARY": 90 },
-    "totalPoints": 90
-  }
-]
+{
+  "customerRewards": [
+    {
+      "customerId": 1,
+      "monthlyPoints": { "FEBRUARY": 90 },
+      "totalPoints": 90
+    }
+  ],
+  "grandTotalPoints": 90,
+  "reportStartDate": "2025-11-09",
+  "reportEndDate": "2026-02-09"
+}
 ```
 
 ## ⚠️ Error Handling & Validation
 
 Standardized JSON error responses:
 
-| Scenario       | HTTP Status     | Message                                      |
-|----------------|-----------------|----------------------------------------------|
-| Malformed JSON | 400 Bad Request | "Malformed JSON input: Check data types..."  |
-| Invalid Dates  | 400 Bad Request | "Start date cannot be after end date"        |
-| Missing Params | 400 Bad Request | "The required query parameter...is missing"  |
+| Scenario       | HTTP Status     | Message                                     |
+|----------------|-----------------|---------------------------------------------|
+| Future Dates   | 400 Bad Request | "Future dates not allowed"                  |
+| Invalid Dates  | 400 Bad Request | "Start date cannot be after end date"       |
+| Missing Params | 400 Bad Request | "The required query parameter...is missing" |
+| Type Mismatch  | 400 Bad Request | "Parameter 'months' has an invalid value"   |
 
 
 ## 🧪 Testing
@@ -116,7 +122,5 @@ Automated Tests
 
 Manual cURL Test
 ```bash
-curl --location --request POST 'http://localhost:8080/api/reward/calculate?startDate=2025-01-01&endDate=2025-04-30' \
---header 'Content-Type: application/json' \
---data-raw '[{"customerId": 1, "amount": 120.0, "date": "2025-01-15"}]'
+curl "http://localhost:8080/api/reward/calculate?start=2025-01-01&end=2026-12-31"
 ```
