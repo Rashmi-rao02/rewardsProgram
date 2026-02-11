@@ -136,7 +136,7 @@ class RewardServiceTest {
     @DisplayName("Aggregation - Multiple transactions for one customer in one month")
     void testAggregation_SameMonth() {
         Long customerId = 100L;
-        LocalDate date = LocalDate.of(2023, Month.JANUARY, 1);
+        LocalDate date = LocalDate.of(2025, Month.JANUARY, 1);
 
         // 120.00 = 90 pts | 60.00 = 10 pts | Total = 100 pts
         repository.save(new Transaction(customerId, new BigDecimal("120.00"), date));
@@ -162,6 +162,27 @@ class RewardServiceTest {
     }
 
     @Test
+    @DisplayName("Service - Should throw exception if date range exceeds 3 months")
+    void testValidateDateRange_ExceedsThreeMonths() {
+        LocalDate start = LocalDate.of(2025, 1, 1);
+        LocalDate end = LocalDate.of(2025, 4, 2); // Over 3 months
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            rewardService.getRewardsReport(start, end);
+        }, "Invalid Request: Date range cannot exceed 3 months.");
+    }
+
+    @Test
+    @DisplayName("Service - Should allow exact 3 month range")
+    void testValidateDateRange_ExactThreeMonths() {
+        LocalDate start = LocalDate.of(2023, 1, 1);
+        LocalDate end = LocalDate.of(2023, 4, 1); // Exactly 3 months
+
+        assertDoesNotThrow(() -> rewardService.getRewardsReport(start, end));
+    }
+
+
+    @Test
     @DisplayName("Recent - Validate range and zero/negative months")
     void testRecentRewardsSummary_Validation() {
 
@@ -172,10 +193,22 @@ class RewardServiceTest {
         assertEquals(expectedUtcToday, zeroResponse.getReportEndDate(), "End date should match UTC 'now'");
         assertEquals(expectedUtcToday, zeroResponse.getReportStartDate(), "Start date with 0 months should match UTC 'now'");
 
+        // Check 3 Months (Maximum allowed - should pass)
+        assertDoesNotThrow(() -> rewardService.getRecentRewardsSummary(3));
 
-        // Very large months
-        RewardSummaryResponse largeResponse = rewardService.getRecentRewardsSummary(1200); // 100 years
-        assertTrue(largeResponse.getReportStartDate().isBefore(LocalDate.now().minusYears(10)));
+        // Check 4 Months (Should throw exception - New Limit)
+        assertThrows(IllegalArgumentException.class, () -> {
+            rewardService.getRecentRewardsSummary(4);
+        }, "Invalid Request: Date range cannot exceed 3 months.");
+
+
+        // Check Negative Months: Start date becomes future
+        assertThrows(IllegalArgumentException.class, () ->
+                        rewardService.getRecentRewardsSummary(-1),
+                "Should fail because start date will be after end date"
+        );
+
+
     }
 
     @Test

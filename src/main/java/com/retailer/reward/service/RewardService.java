@@ -30,6 +30,11 @@ public class RewardService {
         if (start == null || end == null) throw new IllegalArgumentException("Invalid Request: Dates are required.");
         if (start.isAfter(end)) throw new IllegalArgumentException("Invalid Request: Start date cannot be after End date.");
         if (end.isAfter(today)) throw new IllegalArgumentException("Invalid Request: Future dates not allowed.");
+
+        if (start.plusMonths(3).isBefore(end)) {
+            throw new IllegalArgumentException("Invalid Request: Date range cannot exceed 3 months.");
+        }
+
     }
 
     public int calculatePoints(BigDecimal amount) {
