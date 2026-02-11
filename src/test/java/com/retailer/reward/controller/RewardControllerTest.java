@@ -94,7 +94,7 @@ class RewardControllerTest {
     @Test
     @DisplayName("GET /recent - Custom months parameter is passed to service")
     void testRecent_CustomMonths() throws Exception {
-        int customMonths = 6;
+        int customMonths = 2;
         RewardSummaryResponse mockSummary = new RewardSummaryResponse(
                 new ArrayList<>(), 0, LocalDate.now().minusMonths(customMonths), LocalDate.now());
 
@@ -154,5 +154,15 @@ class RewardControllerTest {
                         .param("months", "not-a-number"))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error").value("Parameter Error"));
+    }
+
+    @Test
+    @DisplayName("GET /recent - Months greater than 3 returns Parameter Error")
+    void testRecent_MaxMonthsLimit() throws Exception {
+        mockMvc.perform(get("/api/reward/recent")
+                        .param("months", "4"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("Parameter Error"))
+                .andExpect(jsonPath("$.message").value(org.hamcrest.Matchers.containsString("Months must not exceed 3")));
     }
 }

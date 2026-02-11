@@ -1,5 +1,6 @@
 package com.retailer.reward.exception;
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -62,7 +63,7 @@ class GlobalExceptionHandlerTest {
         public void triggerParamError(@RequestParam String id) {}
 
         @GetMapping("/test/constraint-violation")
-        public void triggerConstraint(@RequestParam @Min(1) int months) {
+        public void triggerConstraint(@RequestParam @Min(1) @Max(3) int months) {
         }
 
         @GetMapping("/test/fatal")

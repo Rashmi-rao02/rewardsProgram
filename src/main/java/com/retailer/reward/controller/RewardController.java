@@ -2,6 +2,7 @@ package com.retailer.reward.controller;
 
 import com.retailer.reward.dto.*;
 import com.retailer.reward.service.RewardService;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,7 +32,9 @@ public class RewardController {
     @GetMapping("/recent")
     public RewardSummaryResponse getRecent(
             @RequestParam(defaultValue = "3")
-            @Min(value = 1, message = "Months must be at least 1") int months) {
+            @Min(value = 1, message = "Months must be at least 1")
+            @Max(value = 3, message = "Months must not exceed 3")
+            int months) {
         return rewardService.getRecentRewardsSummary(months);
     }
 }
