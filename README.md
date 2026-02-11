@@ -1,7 +1,6 @@
 # Retail Rewards Program API
 
-A Spring Boot-based RESTful service designed to calculate reward points for retail customers based on their transaction history. This project implements a tiered reward system and provides dynamic reporting based on custom or recent timeframes.
-
+A Spring Boot-based RESTful service designed to calculate reward points for retail customers based on their transaction history. This project implements a tiered reward system and provides dynamic reporting based on custom date ranges or recent timeframes up to a maximum of 3 months.
 ## 🛠 Tech Stack
 
 * **Java 17**: Core programming language.
