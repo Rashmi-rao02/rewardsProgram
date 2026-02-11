@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
         String message = ex.getConstraintViolations().stream()
                 .map(cv -> cv.getPropertyPath() + ": " + cv.getMessage())
                 .collect(Collectors.joining(" | "));
-        return buildResponse(HttpStatus.BAD_REQUEST, "Validation Error", message);
+        return buildResponse(HttpStatus.BAD_REQUEST, "Parameter Error", message);
     }
 
 

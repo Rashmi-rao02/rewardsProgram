@@ -7,7 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,17 +22,29 @@ public class RewardService {
     @Autowired
     private TransactionRepository repository;
 
+    // Standardizing on UTC
+    public static final ZoneOffset EVALUATION_ZONE = ZoneOffset.UTC;
+
     private static void validateDateRange(LocalDate start, LocalDate end) {
+        LocalDate today = OffsetDateTime.now(EVALUATION_ZONE).toLocalDate();
         if (start == null || end == null) throw new IllegalArgumentException("Invalid Request: Dates are required.");
-        if (start.isAfter(end)) throw new IllegalArgumentException("Invalid Request: Start date after End date.");
-        if (end.isAfter(LocalDate.now())) throw new IllegalArgumentException("Invalid Request: Future dates not allowed.");
+        if (start.isAfter(end)) throw new IllegalArgumentException("Invalid Request: Start date cannot be after End date.");
+        if (end.isAfter(today)) throw new IllegalArgumentException("Invalid Request: Future dates not allowed.");
     }
 
-    public int calculatePoints(double amount) {
-        if (amount < 0) throw new IllegalArgumentException("Invalid Request: Amount cannot be negative.");
+    public int calculatePoints(BigDecimal amount) {
+
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) < 0)
+            throw new IllegalArgumentException("Invalid Request: Amount cannot be negative.");
+
+        long roundedAmount = amount.setScale(0, RoundingMode.DOWN).longValue();
         int points = 0;
-        if (amount > 100) points = (int) (amount - 100) * 2 + 50;
-        else if (amount > 50) points = (int) (amount - 50);
+
+        if (roundedAmount > 100) {
+            points = (int) ((roundedAmount - 100) * 2) + 50;
+        } else if (roundedAmount > 50) {
+            points = (int) (roundedAmount - 50);
+        }
         return points;
     }
 
@@ -48,7 +64,7 @@ public class RewardService {
     }
 
     public RewardSummaryResponse getRecentRewardsSummary(int months) {
-        LocalDate end = LocalDate.now();
+        LocalDate end = OffsetDateTime.now(EVALUATION_ZONE).toLocalDate();
         LocalDate start = end.minusMonths(months);
         List<RewardResponse> responses = getRewardsReport(start, end);
         int total = responses.stream().mapToInt(RewardResponse::getTotalPoints).sum();

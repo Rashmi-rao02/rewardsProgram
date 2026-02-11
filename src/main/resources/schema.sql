@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS transactions (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     customer_id BIGINT NOT NULL,
-    amount DOUBLE NOT NULL,
+    amount DECIMAL(19, 2) NOT NULL,
     date DATE NOT NULL
 );

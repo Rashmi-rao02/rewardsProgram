@@ -1,8 +1,11 @@
 package com.retailer.reward.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -19,13 +22,14 @@ public class Transaction {
     private Long customerId;
 
     @NotNull(message = "Amount is required")
-    private Double amount;
+    @DecimalMin(value = "0.0", message = "Amount must be positive")
+    private BigDecimal amount;
 
     @NotNull(message = "Transaction date is required")
     private LocalDate date;
 
 
-    public Transaction(Long customerId, Double amount, LocalDate date) {
+    public Transaction(Long customerId, BigDecimal amount, LocalDate date) {
         this.customerId = customerId;
         this.amount = amount;
         this.date = date;

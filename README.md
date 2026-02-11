@@ -37,16 +37,27 @@ The system follows a tiered approach per transaction:
 
 
 ```text
-src/main/java/com/retailer/reward/
-├── controller/        # REST Controllers (GET endpoints for DB queries)
-├── dto/               # Data Transfer Objects (Response wrappers)
-├── exception/         # @RestControllerAdvice for global error handling
-├── model/             # JPA Entities (Transaction table mapping)
-├── repository/        # Spring Data JPA Repository
-└── service/           # Business logic & Database interaction
-src/main/resources/
-├── schema.sql         # Database table definitions
-└── data.sql           # Initial data seeding
+src/
+├── main/
+│   ├── java/com/retailer/reward/
+│   │   ├── controller/         # REST Controllers (GET endpoints for DB queries)
+│   │   ├── dto/                # Data Transfer Objects (Response wrappers)
+│   │   ├── exception/          # @RestControllerAdvice for global error handling
+│   │   ├── model/              # JPA Entities (Transaction table mapping)
+│   │   ├── repository/         # Spring Data JPA Repository
+│   │   └── service/            # Business logic & Database interaction
+│   └── resources/
+│       ├── schema.sql          # Database table definitions
+│       └── data.sql            # Initial data seeding
+└── test/
+    ├── java/com/retailer/reward/
+    │   ├── controller/         # RewardControllerTest.java (Web layer tests)
+    │   ├── dto/                # RewardResponseTest.java (Serialization tests)
+    │   ├── exception/          # GlobalExceptionHandlerTest.java (Error mapping tests)
+    │   ├── repository/         # TransactionRepositoryTest.java (Data access tests) <-- ADDED
+    │   └── service/            # RewardServiceTest.java (Business logic & UTC sync tests)
+    └── resources/
+        └── application-test.properties  # Test-specific config 
 
 ```
 
@@ -122,5 +133,5 @@ Automated Tests
 
 Manual cURL Test
 ```bash
-curl "http://localhost:8080/api/reward/calculate?start=2025-01-01&end=2026-12-31"
+curl "http://localhost:8080/api/reward/calculate?startDate=2025-01-01&endDate=2026-12-31"
 ```
